@@ -4,8 +4,8 @@ var router = express.Router();
 
 // home 
 
-router.get('/', function(req, res, next) {
-    res.render('index', { title: '2ndHand' });
+router.get('/', function(req, res) {
+    res.render('index');
 });
 
 module.exports = router;
