@@ -1,0 +1,26 @@
+<h1>New Post</h1>
+
+<form action="/posts/new" method="post">
+    <label class="form-label" for="">Item name</label>
+    <input class="form-control" type="text" name="name">
+
+    <label class="form-label" for="">Upload picture</label>
+    <input class="form-control" type="file" name="picture">
+
+    <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="itemSizeMenuButton" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Size
+        </button>
+        <div class="dropdown-menu" aria-labelledby="itemSizeMenuButton">
+            <a class="dropdown-item" href="#">Small</a>
+            <a class="dropdown-item" href="#">Large</a>
+            <a class="dropdown-item" href="#">Medium</a>
+        </div>
+    </div>
+    
+    <label class="form-label" for="">Price</label>
+    <input type="number" min="1" step="any" /><br>
+
+    <button type="submit" name="button">Submit</button>
+</form>
