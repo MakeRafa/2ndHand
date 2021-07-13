@@ -3,7 +3,11 @@ var router = express.Router();
 // home 
 
 router.get('/', function(req, res, next) {
-    res.render('home', { title: '2ndHand' });
+    res.render('home');
 });
+
+router.get('/posts/new', function(req, res) {
+    res.render('posts-new', {});
+})
 
 module.exports = router;
