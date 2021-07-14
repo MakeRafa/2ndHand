@@ -1,13 +1,20 @@
+<div class="container">
 <div class="row">
-    <div class="col-sm-8 col-sm-offset-2">
-        <ul>
-            {{#each posts}}
-            <li class="list-group-item">
-                <div class="lead"><a href="/posts/{{this._id}}">{{this.title}}</a></div>
-                
-                {{!-- <div class="lead">{{this.picture}}</div> --}}
-            </li>
-            {{/each}}
-        </ul>
-    </div>
+  <div class="col-sm">
+    <ul>
+      {{#each posts}}
+
+        <div class="card" style="width: 20rem;">
+          <img class="card-img-top" src="..." alt="">
+          <div class="card-body">
+            <div class="lead"><a href="/posts/{{this._id}}">{{this.title}}</a></div>
+            
+          </div>
+
+        </div>
+      {{/each}}
+
+    </ul>
+  </div>
+  </div>
 </div>
