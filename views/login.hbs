@@ -1,0 +1,21 @@
+<div class="modal-dialog modal-dialog-top">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title">Login</h5>
+            {{!-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> --}}
+        </div>
+        <div class="modal-body d-flex justify-content-center">
+            <form action="/login" method="POST">
+            <label for="">Username</label>
+            <input type="text" name="username">
+            <br>
+            <label for="">Password</label>
+            <input type="text" name="password">
+            </form>
+        </div>
+        <div class="modal-footer">
+            <a class="btn btn-danger" href="/">Close</a>
+            <a class="btn btn-success" href="/">Login</a>
+        </div>
+    </div>
+</div>
