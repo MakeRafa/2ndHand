@@ -1,3 +1,14 @@
 <h1>home.hbs</h1>
 
 <a href="/posts/new">New Post</a>
+<div class="row">
+  <div class="col-sm-8 col-sm-offset-2">
+        <ul>
+      {{#each posts}}
+        <li class="list-group-item">
+          <div class="lead">{{posts.title}}</div>
+        </li>
+      {{/each}}
+    </ul>
+  </div>
+</div>

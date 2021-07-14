@@ -1,9 +1,19 @@
-<h1>New Post</h1>
+{{!-- <h1>New Post</h1>
 
 <form action="/posts/new" method="post">
     <label class="form-label" for="">Item name</label>
-    <input class="form-control" type="text" name="title">
-
+    {{!-- <input class="form-control" type="text" name="title"> --}}
+    <div class="form-group">
+        <label for="post-title">Title</label>
+        <input
+          type="text"
+          name="title"
+          class="form-control"
+          id="post-title"
+          placeholder="Title"
+        />
+      </div> --}}
+{{!-- 
     <label class="form-label" for="">Upload picture</label>
     <input class="form-control" type="file" name="picture">
 
@@ -20,7 +30,47 @@
     </div>
     
     <label class="form-label" for="">Price</label>
-    <input type="number" min="1" step="any" /><br>
-
+    <input type="number" min="1" step="any" /><br> --}}
+{{!-- 
     <button type="submit" name="button">Submit</button>
-</form>
+</form> --}}
+
+<div class="row">
+  <div class="col-sm-4 col-sm-offset-4">
+    <form action="/posts/new" method="post">
+      <legend>New Post</legend>
+      <div class="form-group">
+        <label for="post-title">Title</label>
+        <input
+          type="text"
+          name="title"
+          class="form-control"
+          id="post-title"
+          placeholder="Title"
+        />
+      </div>
+      {{!-- <div class="form-group">
+        <label for="post-url">Url</label>
+        <input
+          type="url"
+          name="url"
+          class="form-control"
+          id="post-url"
+          placeholder="https://www.google.com"
+        />
+      </div> --}}
+      {{!-- <div class="form-group">
+        <label for="post-summary">Summary</label>
+        <textarea
+          name="summary"
+          class="form-control"
+          id="post-summary"
+          placeholder="Summary"
+        ></textarea>
+      </div> --}}
+      <div class="text-right">
+        <button type="submit" class="btn btn-primary">Create Post</button>
+      </div>
+    </form>
+  </div>
+</div>
