@@ -16,8 +16,9 @@ app.engine('hbs', exphbs({
 
 app.set('view engine', 'hbs');
 
-
+// db
 require('./data/secondHand-db');
+
 require('./routes/posts.js')(app);
 
 app.listen(port, () => {
