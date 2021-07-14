@@ -15,14 +15,15 @@
 
   <body>
 
-    <nav class="navbar navbar-light bg-light">
+    {{!-- <nav class="navbar navbar-light bg-light">
       <span class="navbar-brand mb-0 h1"><a href="/">
           <p href="/">2ndHand</p>
         </a></span>
-    </nav>
-    <a href="/posts/new">New Post</a>
+    </nav> --}}
+{{> navbar}}
     <div class="container">
-
+      
+    <a href="/posts/new">New Post</a>
       {{{body}}}
 
     </div>
