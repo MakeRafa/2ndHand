@@ -4,10 +4,10 @@ const Post = require('../models/post');
 // home 
 
 module.exports = (app) => {
-    // CREATE
-    app.get('/', (req, res) => {
-        res.render('home');
-    })
+    // // CREATE
+    // app.get('/', (req, res) => {
+    //     res.render('home');
+    // })
 
     app.get('/posts/new', (req, res) => {
         res.render('posts-new');
@@ -15,15 +15,14 @@ module.exports = (app) => {
     app.post('/posts/new', (req, res) => {
         const post = new Post(req.body);
 
-        post.save(() => res.redirect('/post-index'))
+        post.save(() => res.redirect('/'))
     })
 
-    app.get('/posts-page', (req, res) => {
-        post.find({}).lean()
+    app.get('/', (req, res) => {
+        Post.find({}).lean()
             .then((posts) => res.render('posts-index', { posts }))
             .catch((err) => {
                 console.log(err.message);
             })
     })
-
 };
