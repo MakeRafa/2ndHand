@@ -4,12 +4,11 @@ assert = require('assert');
 const url = 'mongodb://localhost/secondHand-db';
 mongoose.connect(
     url, {
-        useNewUrlParser: true
-    },
-    function(err, db) {
+    useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true, useFindAndModify: false,
+},
+    (err) => {
         assert.equal(null, err);
-        console.log('Connected successfully to database');
-
+        console.log("Connected successfully to database");
     }
 );
 mongoose.connection.on('error', console.error.bind(console, 'MongoDB connection Error:'));
