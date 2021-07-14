@@ -1,13 +1,12 @@
 const mongoose = require('mongoose');
 assert = require('assert');
 
-const url = 'mongodb://local/secondHand-db';
+const url = 'mongodb://localhost/secondHand-db';
 mongoose.connect(
-    url,
-    {
+    url, {
         useNewUrlParser: true
     },
-    function (err, db) {
+    function(err, db) {
         assert.equal(null, err);
         console.log('Connected successfully to database');
 
