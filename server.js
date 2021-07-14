@@ -4,6 +4,11 @@ const port = 3000
     // const hbs = require('express-handlebars');
 const exphbs = require('express-handlebars');
 
+// middleware 
+
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+
 app.engine('hbs', exphbs({
     defaultLayout: 'main',
     extname: '.hbs'
@@ -11,16 +16,12 @@ app.engine('hbs', exphbs({
 
 app.set('view engine', 'hbs');
 
-app.get('/', (req, res) => {
-    res.render('home');
-});
-
-app.get('/posts/new', (req, res) => {
-    res.render('posts-new');
-})
 
 require('./data/secondHand-db');
+require('./routes/posts.js')(app);
 
 app.listen(port, () => {
     console.log(`2ndHand listening at http://localhost:${port}`)
 })
+
+module.exports = app;
