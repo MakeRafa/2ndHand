@@ -1,11 +1,12 @@
 var express = require('express');
-var router = express.Router();
 // home 
 
-
-app.get('/posts/new', (req, res) => {
-    res.render('posts-new');
-})
-
-
-module.exports = router;
+module.exports = (app) => {
+    // CREATE
+    app.get('/posts/new', (req, res) => {
+        res.render('posts-new');
+    })
+    app.get('/', (req, res) => {
+        res.render('home');
+    });
+};
