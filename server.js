@@ -16,11 +16,11 @@ app.engine('hbs', exphbs({
 
 app.set('view engine', 'hbs');
 
-app.get('/', (req, res) => {
-    res.render('home');
-});
 
+require('./routes/posts.js')(app);
 
 app.listen(port, () => {
     console.log(`2ndHand listening at http://localhost:${port}`)
 })
+
+module.exports = app;
