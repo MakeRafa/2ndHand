@@ -1,0 +1,20 @@
+<div class="row d-flex justify-content-around">
+    <div class="col-sm-8 col-sm-offset-4 pt-3">
+        <form action="./posts/{{post._id}}?_method=PUT">
+            {{!-- <legend>Edit Post</legend> --}}
+            <div class="form-group">
+                <label for="post-title">Title</label>
+                <input value="{{post.title}}" type="text" name="title" class="form-control" id="post-title" />
+
+                <label for="post-price">Price</label>
+                <input value="{{post.price}}" type="text" name="price" class="form-control" id="post-price" />
+
+                <label for="post-size">Size</label>
+                <input value="{{post.size}}" type="text" name="size" class="form-control" id="post-size"/>
+
+                <label for="post-descrition">Description</label>
+                <input value="{{post.description}}" type="text" name="description" class="form-control" id="post-description"/>
+            </div>
+        </form>
+    </div>
+</div>
