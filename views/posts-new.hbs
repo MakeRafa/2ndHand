@@ -1,80 +1,44 @@
-{{!-- <h1>New Post</h1>
-
-<form action="/posts/new" method="post">
-    <label class="form-label" for="">Item name</label>
-<<<<<<< HEAD
-    {{!-- <input class="form-control" type="text" name="title"> --}}
-    <div class="form-group">
-        <label for="post-title">Title</label>
-        <input
-          type="text"
-          name="title"
-          class="form-control"
-          id="post-title"
-          placeholder="Title"
-        />
-      </div> --}}
-{{!-- 
-    <label class="form-label" for="">Upload picture</label>
-    <input class="form-control" type="file" name="picture">
-
-    <div class="dropdown">
-        <button class="btn btn-secondary dropdown-toggle" type="button" id="itemSizeMenuButton" data-toggle="dropdown"
-            aria-haspopup="true" aria-expanded="false">
-            Size
-        </button>
-        <div class="dropdown-menu" aria-labelledby="itemSizeMenuButton">
-            <a class="dropdown-item" href="#">Small</a>
-            <a class="dropdown-item" href="#">Large</a>
-            <a class="dropdown-item" href="#">Medium</a>
-        </div>
-    </div>
-    
-    <label class="form-label" for="">Price</label>
-    <input type="number" min="1" step="any" /><br> --}}
-{{!-- 
-=======
-    <input class="form-control" type="text" name="title">
->>>>>>> 01fce7e5e86eb96b10dbc2ac5c4a203fdfc12931
-    <button type="submit" name="button">Submit</button>
-</form> --}}
-
 <div class="row">
-  <div class="col-sm-4 col-sm-offset-4">
-    <form action="/posts/new" method="post">
-      <legend>New Post</legend>
-      <div class="form-group">
-        <label for="post-title">Title</label>
-        <input
-          type="text"
-          name="title"
-          class="form-control"
-          id="post-title"
-          placeholder="Title"
-        />
-      </div>
-      {{!-- <div class="form-group">
-        <label for="post-url">Url</label>
-        <input
-          type="url"
-          name="url"
-          class="form-control"
-          id="post-url"
-          placeholder="https://www.google.com"
-        />
-      </div> --}}
-      {{!-- <div class="form-group">
-        <label for="post-summary">Summary</label>
-        <textarea
-          name="summary"
-          class="form-control"
-          id="post-summary"
-          placeholder="Summary"
-        ></textarea>
-      </div> --}}
-      <div class="text-right">
-        <button type="submit" class="btn btn-primary">Create Post</button>
-      </div>
-    </form>
-  </div>
+    <div class="col-sm-4 col-sm-offset-4">
+        <form action="/posts/new" method="post">
+            <legend>New Post</legend>
+            <div class="form-group">
+                <label for="post-title">Title</label>
+                <input
+                    type="text"
+                    name="title"
+                    class="form-control"
+                    id="post-title"
+                    placeholder="Title"
+                    />
+                <label for="post-price">Price</label>
+                <input
+                    type="text"
+                    name="price"
+                    class="form-control"
+                    id="post-price"
+                    placeholder="Price"
+                    />
+                <label for="post-size">Size</label>
+                <input
+                    type="text"
+                    name="size"
+                    class="form-control"
+                    id="post-size"
+                    placeholder="Size"
+                    />
+                <label for="post-picture">Picture</label>
+                {{!-- <input
+                    type="file"
+                    name="picture"
+                    class="form-control"
+                    id="post-picture"
+                    placeholder="Picture"
+                    /> --}}
+            </div>
+            <div class="text-right">
+                <button type="submit" class="btn btn-primary">Create Post</button>
+            </div>
+        </form>
+    </div>
 </div>
