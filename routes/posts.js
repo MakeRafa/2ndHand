@@ -4,10 +4,7 @@ const Post = require('../models/post');
 // home 
 
 module.exports = (app) => {
-    // // CREATE
-    // app.get('/', (req, res) => {
-    //     res.render('home');
-    // })
+
 
     app.get('/posts/new', (req, res) => {
         res.render('posts-new');
