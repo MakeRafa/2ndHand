@@ -22,6 +22,7 @@ app.set('view engine', 'hbs');
 require('./data/secondHand-db');
 
 require('./routes/posts')(app);
+require('./routes/auth')(app);
 
 app.listen(port, () => {
     console.log(`2ndHand listening at http://localhost:${port}`)

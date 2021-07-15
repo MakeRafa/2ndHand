@@ -1,13 +1,9 @@
 var express = require('express');
-const { post } = require('../server');
+// const { post } = require('../server');
 const Post = require('../models/post');
 // home 
 
 module.exports = (app) => {
-
-    app.get('/login', (req, res) => res.render('login'));
-    app.get('/signup', (req, res) => res.render('signup'));
-
     // NEW
     app.get('/posts/new', (req, res) => {
         res.render('posts-new');
@@ -42,6 +38,9 @@ module.exports = (app) => {
         Post.findById(req.params.id, function (err, post) {
             res.render('posts-edit');
         })
+        .catch(err => {
+            console.log(err.message)
+        })
     })
 
     // UPDATE
@@ -53,10 +52,6 @@ module.exports = (app) => {
             .catch(err => {
                 console.log(err.message)
             })
-    })
-
-    app.get('/hand', (req, res) => {
-        res.render('hand');
     })
 
 };
