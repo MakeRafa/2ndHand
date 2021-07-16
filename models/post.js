@@ -1,5 +1,5 @@
 const { Schema, model } = require('mongoose');
-const Populate = require("./util/autopopulate");
+const Populate = require("../util/autopopulate");
 
 const postSchema = new Schema({
     creator: { type: Schema.Types.ObjectId, ref: 'User', required: true },

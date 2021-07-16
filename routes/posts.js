@@ -94,7 +94,7 @@ module.exports = (app) => {
     app.get('/profile', (req,res) => {
         // const currentUser = req.user;
 
-        res.render('profile', {title: 'profile', user: req.user})
+        res.render('profile', {title: 'profile', user: req.user, body: req.body})
     })
 
 };
