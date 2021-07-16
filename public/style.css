@@ -1,0 +1,29 @@
+body {
+    background-color: rgb(255, 254, 254)
+    /* background: url(images/bg.jpg) no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover; */
+}
+
+.navbar {
+    background-color: rgba(255, 254, 254, 0.8) !important; 
+    border-bottom: 2px solid rgb(194, 194, 194);
+
+
+}
+
+.navbar-brand {
+    max-height: 70px;
+}
+
+.card{
+    background-color: rgb(186, 186, 186);
+    -webkit-box-shadow: -1px 6px 7px -2px #000000; 
+    box-shadow: -1px 6px 7px -2px #000000;
+}
+
+.list-group-flush .list-group-item {
+    background-color: rgb(186, 186, 186);
+}

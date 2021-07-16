@@ -5,19 +5,18 @@
             {{!-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> --}}
         </div>
         <div class="modal-body d-flex justify-content-center">
-            <form action="/signup" method="POST">
+            <form action="/signup" method="post">
             <label for="">Username</label>
-            <input type="text" name="username">
+            <input type="text" name="username" class="form-control" id="username" placeholder="username" />
             <br>
             <label for="">Password</label>
-            <input type="text" name="password">
-            </form>
+            <input type="password" name="password" class="form-control" id="password" placeholder="password"/>
+            
         </div>
         <div class="modal-footer">
-            <a class="btn btn-success" href="/login">Log in</a>
+            <button class="btn btn-success" href="/signup">Sign Up</button>
             <a class="btn btn-danger" href="/">Close</a>
-            
-            <a class="btn btn-success" href="/">Sign Up</a>
         </div>
+        </form>
     </div>
 </div>

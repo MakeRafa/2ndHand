@@ -1,28 +1,59 @@
 var express = require('express');
-const { post } = require('../server');
+// const { post } = require('../server');
 const Post = require('../models/post');
+const User = require('../models/user');
 // home 
 
 module.exports = (app) => {
 
-    app.get('/login', (req, res) => res.render('login'));
-    app.get('/signup', (req, res) => res.render('signup'));
-
-    // NEW
-    app.get('/posts/new', (req, res) => {
-        res.render('posts-new');
-    })
+    // HOME
+    app.get('/', (req, res) => {
+        const { user } = req;
+        const currentUser = req.user;
+        console.log(req.cookies);
+        Post.find({}).lean().populate('creator')
+            .then((posts) => res.render('home', { posts, currentUser, user }))
+            .catch((err) => {
+                console.log(err.message);
+            });
+    });
 
     // POST
     app.post('/posts/new', (req, res) => {
-        const post = new Post(req.body);
+        if (req.user) {
+            const userId = req.user._id;
+            const post = new Post(req.body);
+            post.creator = userId;
 
-        post.save(() => res.redirect('/'))
+            post
+                .save()
+                .then(() => User.findById(userId))
+                .then((user) => {
+                    user.posts.unshift(post);
+                    user.save();
+                    // REDIRECT TO THE NEW POST
+                    return res.redirect(`/posts/${post._id}`);
+                })
+                .catch((err) => {
+                    console.log(err.message);
+                });
+        } else {
+            return res.status(401); // UNAUTHORIZED
+        }
+    });
+
+    // NEW
+    app.get('/posts/new', (req, res) => {
+        const currentUser = req.user;
+        res.render('posts-new', { currentUser });
     })
-    // HOME
-    app.get('/', (req, res) => {
+
+    //Show All
+    app.get('/posts-index', (req, res) => {
+        const currentUser = req.user;
+
         Post.find({}).lean()
-            .then((posts) => res.render('posts-index', { posts }))
+            .then((posts) => res.render('posts-index', { posts, currentUser }))
             .catch((err) => {
                 console.log(err.message);
             })
@@ -30,8 +61,10 @@ module.exports = (app) => {
 
     // SHOW
     app.get('/posts/:id', (req, res) => {
-        Post.findById(req.params.id).lean()
-            .then((post) => res.render('posts-show', { post }))
+        const currentUser = req.user;
+
+        Post.findById(req.params.id).lean().populate('creator')
+            .then((post) => res.render('posts-show', { post, currentUser }))
             .catch((err) => {
                 console.log(err.message);
             });
@@ -40,8 +73,11 @@ module.exports = (app) => {
     // EDIT
     app.get('/posts/:id/edit', (req, res) => {
         Post.findById(req.params.id, function (err, post) {
-            res.render('posts-edit');
+            res.render('posts-edit', { currentUser });
         })
+            .catch(err => {
+                console.log(err.message)
+            })
     })
 
     // UPDATE
@@ -55,8 +91,10 @@ module.exports = (app) => {
             })
     })
 
-    app.get('/hand', (req, res) => {
-        res.render('hand');
+    app.get('/profile', (req,res) => {
+        // const currentUser = req.user;
+
+        res.render('profile', {title: 'profile', user: req.user})
     })
 
 };
