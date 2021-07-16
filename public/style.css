@@ -1,0 +1,12 @@
+body {
+    background-color: rgb(182, 66, 66);
+}
+
+.bg-light {
+    background-color: rgb(80, 80, 155) !important; 
+
+}
+
+.navbar-brand {
+    max-height: 70px;
+}
