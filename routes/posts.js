@@ -63,7 +63,7 @@ module.exports = (app) => {
     app.get('/posts/:id', (req, res) => {
         const currentUser = req.user;
 
-        Post.findById(req.params.id).lean()
+        Post.findById(req.params.id).lean().populate('creator')
             .then((post) => res.render('posts-show', { post, currentUser }))
             .catch((err) => {
                 console.log(err.message);
@@ -89,6 +89,12 @@ module.exports = (app) => {
             .catch(err => {
                 console.log(err.message)
             })
+    })
+
+    app.get('/profile', (req,res) => {
+        // const currentUser = req.user;
+
+        res.render('profile', {title: 'profile', user: req.user})
     })
 
 };
